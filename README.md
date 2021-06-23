@@ -10,6 +10,8 @@
 
 - Python 3.7.X + 3rd party libs, etc.
 
+- Just run in target drone.
+
 ---
 
 ## Contents
@@ -23,7 +25,7 @@
 ## Structure
 
 - `/exp_poc`    Self modify exp/poc
-- `/pentest_tool`    Pentest Script
+- `/others`     Other exp/poc
 
 ---
 
