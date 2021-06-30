@@ -2,7 +2,7 @@
 
 ## Intro
 
-### It's a exp & poc collection based on Python 3.7.X above.
+### It's a exp & poc collection based on Python 3.7.X above, include some modified script.
 
 ---
 
