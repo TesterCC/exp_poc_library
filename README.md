@@ -50,3 +50,11 @@
 - [ ] Add POC and EXP step by step.
 - [ ] Refactor some python 2 pentest script.
 - [ ] Remove redundant git repos.
+
+---
+
+## Disclaimer 免责声明 
+
+本项目中的代码均为互联网收集或自行编写，仅供合法授权测试或自学使用，禁止使用本项目进行违法操作，产生的法律责任和本人无关。
+请各位遵守《中华人民共和国网络安全法》以及相应地方的法律法规，否则自行承担相关责任！
+
