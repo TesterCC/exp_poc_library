@@ -18,20 +18,20 @@
 
 ### Numbered
 
-- [CVE-2021-26084](/exp_poc/CVE-2021-26084_Confluence_OGNL_injection/CVE-2021-26084.md)
-- [CVE-2021-3019](/exp_poc/CVE-2021-3019_LanProxy/CVE-2021-3019.md)
-- [CVE-2020-11651](/exp_poc/CVE-2020-11651_SaltStack/CVE-2020-11651.md)
-- [CVE-2019-8341](/exp_poc/CVE-2019-8341_Flask_Jinja2/CVE-2019-8341.md)
-- [CVE-2019-5475](/exp_poc/CVE-2019-5475_Sonatype_Nexus/CVE-2019-5475.md)
-- [CVE-2018-14961](/exp_poc/CVE-2018-14961_ZZCMS/CVE-2018-14961.md)
-- [CVE-2018-14574](/exp_poc/CVE-2018-14574_Django_URL_jump/CVE-2018-14574.md)
-- [CVE-2018-3760](/exp_poc/CVE-2018-3760_RubyOnRails/CVE-2018-3760.md)
-- [CVE-2017-12611](/exp_poc/CVE-2017-12611_S2-053/CVE-2017-12611.md)
-- [CVE-2017-11610](/exp_poc/CVE-2017-11610_Supervisord/CVE-2017-11610.md)
-- [CVE-2017-7529](/exp_poc/CVE-2017-7529_Nginx/CVE-2017-7529.md)
-- [CVE-2016-8339](/exp_poc/CVE-2016-8339_Redis_Unauthorized_Access/CVE-2016-8339.md)
-- [CVE-2012-0002](/exp_poc/CVE-2012-0002_Win2008_RDP_MS12-020/CVE-2012-0002.md)
-- [CVE-2010-2861](/exp_poc/CVE-2010-2861_Adobe_ColdFusion/CVE-2010-2861.md)
+- [CVE-2021-26084_Confluence_OGNL_injection](/exp_poc/CVE-2021-26084_Confluence_OGNL_injection/CVE-2021-26084.md)
+- [CVE-2021-3019_LanProxy](/exp_poc/CVE-2021-3019_LanProxy/CVE-2021-3019.md)
+- [CVE-2020-11651_SaltStack](/exp_poc/CVE-2020-11651_SaltStack/CVE-2020-11651.md)
+- [CVE-2019-8341_Flask_Jinja2](/exp_poc/CVE-2019-8341_Flask_Jinja2/CVE-2019-8341.md)
+- [CVE-2019-5475_Sonatype_Nexus](/exp_poc/CVE-2019-5475_Sonatype_Nexus/CVE-2019-5475.md)
+- [CVE-2018-14961_ZZCMS](/exp_poc/CVE-2018-14961_ZZCMS/CVE-2018-14961.md)
+- [CVE-2018-14574_Django_URL_jump](/exp_poc/CVE-2018-14574_Django_URL_jump/CVE-2018-14574.md)
+- [CVE-2018-3760_RubyOnRails](/exp_poc/CVE-2018-3760_RubyOnRails/CVE-2018-3760.md)
+- [CVE-2017-12611_S2-053](/exp_poc/CVE-2017-12611_S2-053/CVE-2017-12611.md)
+- [CVE-2017-11610_Supervisord](/exp_poc/CVE-2017-11610_Supervisord/CVE-2017-11610.md)
+- [CVE-2017-7529_Nginx](/exp_poc/CVE-2017-7529_Nginx/CVE-2017-7529.md)
+- [CVE-2016-8339_Redis_Unauthorized_Access](/exp_poc/CVE-2016-8339_Redis_Unauthorized_Access/CVE-2016-8339.md)
+- [CVE-2012-0002_Win2008_RDP_MS12-020](/exp_poc/CVE-2012-0002_Win2008_RDP_MS12-020/CVE-2012-0002.md)
+- [CVE-2010-2861_Adobe_ColdFusion](/exp_poc/CVE-2010-2861_Adobe_ColdFusion/CVE-2010-2861.md)
 
 ### Others
 
