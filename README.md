@@ -20,6 +20,7 @@
 
 - [CVE-2021-26084_Confluence_OGNL_injection](/exp_poc/CVE-2021-26084_Confluence_OGNL_injection/CVE-2021-26084.md)
 - [CVE-2021-3019_LanProxy](/exp_poc/CVE-2021-3019_LanProxy/CVE-2021-3019.md)
+- [CVE-2020-35576_TP-Link_TL-WR841N_Command_Injection](/exp_poc/CVE-2020-35576_TP-Link_TL-WR841N_Command_Injection/CVE-2020-35576.md)
 - [CVE-2020-11651_SaltStack](/exp_poc/CVE-2020-11651_SaltStack/CVE-2020-11651.md)
 - [CVE-2019-8341_Flask_Jinja2](/exp_poc/CVE-2019-8341_Flask_Jinja2/CVE-2019-8341.md)
 - [CVE-2019-5475_Sonatype_Nexus](/exp_poc/CVE-2019-5475_Sonatype_Nexus/CVE-2019-5475.md)
