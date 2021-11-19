@@ -27,6 +27,7 @@ from scapy.layers.inet import IP, ICMP  # 这些指定协议在新版本scapy中
 
 import threading
 
+# initialization
 ret = dict()
 ret['status'] = None
 ret['info'] = list()
