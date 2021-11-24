@@ -5,38 +5,43 @@ AUTHOR: TesterCC
 """
 
 """
-发送一个SYN数据包可能出现的3种情况：
-1. 到达目标xx端口，但目标端口关闭，目标主机会返回一个RST数据包
-2. 到达目标xx端口，且目标端口开放，目标主机返回一个“SYN+ACK”数据包
-3. 无法到达目标，不会收到任何响应
-
-基于TCP的主机发现(nmap)
+TCP SYN扫描(nmap)
+包含端口和应用信息
 
 Usage:
-python TCP主机发现武器.py --ip 10.0.4.148
-python TCP主机发现武器.py --ip 10.0.4.146-151
+python tcp_syn_port_scan_scapy.py --ip 10.0.4.148
+python tcp_syn_port_scan_scapy.py --ip 10.0.4.140-149
 """
 
 from optparse import OptionParser
 import nmap
 
-ret = dict()
-ret['status'] = None
-ret['info'] = list()
-
 
 def Scan(ip):
     try:
+        lport = None
         nm = nmap.PortScanner()
-        nm.scan(ip, arguments=' -sT')   # 将与目标端口进行三次握手，尝试建立连接，如果连接成功，则端口开放，速度慢，会被目录主机记录
+        nm.scan(ip)  # 将与目标端口进行三次握手，尝试建立连接，如果连接成功，则端口开放，速度慢，会被目录主机记录
 
         for host in nm.all_hosts():
-            ret['info'].append(host)
-            ret['status'] = 'success'
+            print('HOST: {0} ({1})'.format(host, nm[host].hostname()))
+            print('State: {0}'.format(nm[host].state()))
+
+            for proto in nm[host].all_protocols():
+                print('Protocol: {0}'.format(proto))
+                lport = list(nm[host][proto].keys())
+
+        lport.sort()
+        for port in lport:
+            print("port: {0}\tstate: {1}".format(port, nm[host][proto][port]))
+
+            # ret['info'].append(host)
+            # ret['status'] = 'success'
 
     except Exception as err:
-        ret['status'] = 'fail'
-        ret['info'] = str(err)
+        pass
+        # ret['status'] = 'fail'
+        # ret['info'] = str(err)
 
 
 def main():
@@ -50,7 +55,6 @@ def main():
                  options.targetIP.split('.')[2] + '.' + str(i))
     else:
         Scan(options.targetIP)
-    print(ret)
 
 
 if __name__ == '__main__':

@@ -3,13 +3,14 @@
 DATE:   2021/8/13
 AUTHOR: TesterCC
 """
+import json
 
 """
 基于ICMP的主机发现
 
 Usage:
-python ICMP主机发现扫描武器.py --ip 10.0.4.148
-python ICMP主机发现扫描武器.py --ip 10.0.4.140-149
+python ICMP主机发现武器.py --ip 10.0.4.148
+python ICMP主机发现武器.py --ip 10.0.4.140-149
 """
 
 from random import randint
@@ -60,7 +61,7 @@ def main():
     else:
         Scan(options.IP)
 
-    print(ret)
+    print(json.dumps(ret))
 
 
 if __name__ == "__main__":

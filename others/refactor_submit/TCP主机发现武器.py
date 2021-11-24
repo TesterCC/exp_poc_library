@@ -5,16 +5,11 @@ AUTHOR: TesterCC
 """
 
 """
-发送一个SYN数据包可能出现的3种情况：
-1. 到达目标xx端口，但目标端口关闭，目标主机会返回一个RST数据包
-2. 到达目标xx端口，且目标端口开放，目标主机返回一个“SYN+ACK”数据包
-3. 无法到达目标，不会收到任何响应
-
 基于TCP的主机发现(nmap)
 
 Usage:
 python TCP主机发现武器.py --ip 10.0.4.148
-python TCP主机发现武器.py --ip 10.0.4.146-151
+python TCP主机发现武器.py --ip 10.0.4.147-151
 """
 
 from optparse import OptionParser

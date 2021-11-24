@@ -5,11 +5,11 @@ AUTHOR: TesterCC
 """
 
 """
-基于UDP的主机发现(nmap)
+TCP ACK Ping武器
 
 Usage:
-python UDP主机发现扫描武器.py --ip 10.0.4.148
-python UDP主机发现扫描武器.py --ip 10.0.4.140-149
+python "TCP ACK主机发现武器.py" --ip 10.0.4.148
+python "TCP ACK主机发现武器.py" --ip 10.0.4.146-151
 """
 
 from optparse import OptionParser
@@ -23,7 +23,8 @@ ret['info'] = list()
 def Scan(ip):
     try:
         nm = nmap.PortScanner()
-        nm.scan(ip, arguments=' -PU')
+        # nmap -PA, TCP ACK Ping
+        nm.scan(ip, arguments=' -PA')
 
         for host in nm.all_hosts():
             ret['info'].append(host)

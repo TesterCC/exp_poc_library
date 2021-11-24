@@ -15,7 +15,7 @@ AUTHOR: TesterCC
 
 Usage:
 
-python ICMP主机发现扫描武器.py --ip 10.0.4.140-149
+python ICMP主机发现武器.py --ip 10.0.4.140-149
 """
 
 from random import randint
@@ -80,7 +80,7 @@ def main():
     else:
         Scan(options.IP)
 
-    print(ret)
+    print(json.dumps(ret))
     # print("[+]Scan finished!....\n")
 
 

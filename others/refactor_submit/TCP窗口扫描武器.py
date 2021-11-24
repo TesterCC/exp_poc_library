@@ -3,18 +3,19 @@
 DATE:   2021/11/22
 AUTHOR: TesterCC
 """
+import json
 
 """
-发送一个SYN数据包可能出现的3种情况：
-1. 到达目标xx端口，但目标端口关闭，目标主机会返回一个RST数据包
-2. 到达目标xx端口，且目标端口开放，目标主机返回一个“SYN+ACK”数据包
-3. 无法到达目标，不会收到任何响应
+TCP窗口扫描(nmap)
 
-基于TCP的主机发现(nmap)
+原理：
+客户端发送 ACK 数据包
+服务端返回 RST 数据包，则该端口没有被过滤，
+接着检查 RST 数据包中的窗口大小，如窗口大小值非零，则说明端口开放，为 0 则说明端口关闭
 
 Usage:
-python TCP主机发现武器.py --ip 10.0.4.148
-python TCP主机发现武器.py --ip 10.0.4.146-151
+python TCP窗口扫描武器.py --ip 10.0.4.148
+python TCP窗口扫描武器.py --ip 10.0.4.147-151
 """
 
 from optparse import OptionParser
@@ -28,19 +29,19 @@ ret['info'] = list()
 def Scan(ip):
     try:
         nm = nmap.PortScanner()
-        nm.scan(ip, arguments=' -sT')   # 将与目标端口进行三次握手，尝试建立连接，如果连接成功，则端口开放，速度慢，会被目录主机记录
+        # TCP Window Scan
+        nm.scan(ip, arguments=' -sW')
 
         for host in nm.all_hosts():
-            ret['info'].append(host)
+            print({host: nm[host].get('addresses').get('mac')})
+            ret['info'].append({host: nm[host].get('addresses').get('mac')})
             ret['status'] = 'success'
-
-    except Exception as err:
-        ret['status'] = 'fail'
-        ret['info'] = str(err)
+    except:
+        pass
 
 
 def main():
-    usage = "Usage: %prog -i <ip address>"
+    usage = "Usage: %prog --ip <ip address>"
     parse = OptionParser(usage=usage)
     parse.add_option("-i", '--ip', type="string", dest="targetIP", help="specify the IP address")  # 获取网段地址
     options, args = parse.parse_args()
@@ -50,7 +51,7 @@ def main():
                  options.targetIP.split('.')[2] + '.' + str(i))
     else:
         Scan(options.targetIP)
-    print(ret)
+    print(json.dumps(ret))
 
 
 if __name__ == '__main__':

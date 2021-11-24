@@ -31,9 +31,9 @@ from scapy.all import *
 from scapy.layers.inet import IP, TCP
 
 # initialization
-ret = dict()
-ret['status'] = None
-ret['info'] = list()
+# ret = dict()
+# ret['status'] = None
+# ret['info'] = list()
 
 def scan(ip, port):
     print("Server %s, Port: %s is scaning" % (ip, port))
@@ -44,7 +44,7 @@ def scan(ip, port):
 
         port = int(port)
         src_port = RandShort()  # return random port， 0 to 2**16 (65536)
-        # 获取一个响应包， flags S 代表SYN类型, res即是相应包结果
+        # 获取一个响应包， flags S 代表SYN类型, res即是响应包结果
         res = sr1(IP(dst=ip) / TCP(sport=src_port, dport=port, flags="S"), timeout=3)
         # 判断相应包里是否有TCP层
         if res.haslayer(TCP):

