@@ -29,7 +29,7 @@ def start_attack(psrc, count):
 
 
 def main():
-    parser = optparse.OptionParser('usage: python %prog --ip --count 200 \n')
+    parser = optparse.OptionParser('usage: python %prog --ip 1.1.1.1 --count 200 \n')
     parser.add_option('-i', '--ip', dest='attack_ip', default='1.1.1.1', type='string', help='fake packet src ip')
     parser.add_option('-c', '--count', dest='attack_count', default='100', type='string', help='send packet count')
     options, args = parser.parse_args()
