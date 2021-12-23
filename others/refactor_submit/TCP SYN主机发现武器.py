@@ -36,7 +36,7 @@ def Scan(ip):
 
 
 def main():
-    usage = "Usage: %prog -i <ip address>"
+    usage = "Usage: %prog --ip <ip address>"
     parse = OptionParser(usage=usage)
     parse.add_option("-i", '--ip', type="string", dest="targetIP", help="specify the IP address")  # 获取网段地址
     options, args = parse.parse_args()
