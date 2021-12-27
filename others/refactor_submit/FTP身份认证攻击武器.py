@@ -64,6 +64,8 @@ def main():
 
     if not ret['status']:
         ret['status'] = 'fail'
+
+    print(json.dumps(ret))
     return json.dumps(ret)
 
 

