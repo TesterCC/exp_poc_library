@@ -30,6 +30,7 @@
 - [CVE-2017-12611_S2-053](/exp_poc/CVE-2017-12611_S2-053/CVE-2017-12611.md)
 - [CVE-2017-11610_Supervisord](/exp_poc/CVE-2017-11610_Supervisord/CVE-2017-11610.md)
 - [CVE-2017-7529_Nginx](/exp_poc/CVE-2017-7529_Nginx/CVE-2017-7529.md)
+- [CVE-2016-10134_Zabbix_SQL_Injection](/exp_poc/CVE-2016-10134_Zabbix_SQL_Injection/CVE-2016-10134.md)
 - [CVE-2016-8339_Redis_Unauthorized_Access](/exp_poc/CVE-2016-8339_Redis_Unauthorized_Access/CVE-2016-8339.md)
 - [CVE-2012-0002_Win2008_RDP_MS12-020](/exp_poc/CVE-2012-0002_Win2008_RDP_MS12-020/CVE-2012-0002.md)
 - [CVE-2010-2861_Adobe_ColdFusion](/exp_poc/CVE-2010-2861_Adobe_ColdFusion/CVE-2010-2861.md)
@@ -47,11 +48,15 @@
 
 ---
 
-## Todo in 2021
+## Todo in 2022
 
 - [ ] Add POC and EXP step by step.
-- [ ] Refactor some python 2 pentest script.
 - [ ] Remove redundant git repos.
+
+## Done in 2021
+
+- [X] Add POC and EXP step by step.
+- [X] Refactor some python 2 pentest script.
 
 ---
 
