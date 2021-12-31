@@ -43,5 +43,5 @@ def attack():
 
 
 if __name__ == '__main__':
-    # python3 Apache_Struts_输入数据篡改.py --ip 10.0.4.148 --port 8080 --cmd "ls -al"
+    # python3 Apache_Struts_输入数据篡改武器.py --ip 10.0.4.148 --port 8080 --cmd "ls -al"
     attack()
