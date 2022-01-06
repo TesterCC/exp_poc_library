@@ -1,4 +1,6 @@
 # coding:utf-8
+
+import json
 import requests
 import sys
 import re
@@ -43,7 +45,7 @@ def main():
         ret['info'] = err
         # print("[-]{}".format(err))
 
-    print(ret)
+    print(json.dumps(ret))
 
 
 if __name__ == '__main__':
