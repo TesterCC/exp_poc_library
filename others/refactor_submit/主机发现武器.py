@@ -13,6 +13,7 @@ python 主机发现武器.py --ip 10.0.4.148
 python 主机发现武器.py --ip 10.0.4.145-151
 """
 
+import json
 from optparse import OptionParser
 import nmap
 
