@@ -3,18 +3,26 @@
 DATE:   2021/12/7
 AUTHOR: TesterCC
 """
-
-from winreg import *
-import sys
 import json
+import platform
+import sys
 
+system_version = platform.system()
 
 ret = dict()
 ret['status'] = None
-ret['info'] = list()
+ret['info'] = None
 
+if system_version == 'Windows':
+    from winreg import *
+else:
+    ret['status'] = 'fail'
+    ret['info'] = "non windows platform"
+    print(json.dumps(ret))
+    sys.exit()
 
 def get_userinfo():
+    ret['info'] = list()
     # 连接注册表根键 以HKEY_LOCAL_MACHINE为例
     regRoot = ConnectRegistry(None, HKEY_LOCAL_MACHINE)
     subDir = r'SOFTWARE\Microsoft\Windows NT\CurrentVersion\ProfileList'
