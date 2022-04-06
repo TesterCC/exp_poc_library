@@ -38,6 +38,9 @@
 
 ### Others
 
+没有/无法确定CVE编号的poc/exp。
+
+- [Spring Cloud Function SPEL表达式注入](others/Spring_Cloud_Function_SPEL_Expression_Injection/Spring_Cloud_Function_SPEL_Expression_Injection.md)
 - [三星 WLAN AP WEA453e路由器未授权RCE](/others/Samsung_Router_WLAN_AP_WEA453e/Samsung_Router_WLAN_AP_WEA453e.md)
 
 ---
@@ -52,7 +55,7 @@
 ## Todo in 2022
 
 - [ ] Add POC and EXP step by step.
-- [ ] Remove redundant git repos.
+- [X] Remove redundant git repos.
 
 ## Done in 2021
 
